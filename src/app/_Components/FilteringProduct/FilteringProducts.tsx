@@ -85,7 +85,7 @@ setSorted(sortItem)
 <motion.div
 key={productCard._id}
                          className=""
-                         initial={{ y: 120, opacity: 0 }}
+                         initial={{ y: 120, opacity:1 }}
                          whileInView={{ y: 0, opacity: 1 }}
                          transition={{ duration: 1 }}
                          viewport={{ once: true,amount:.6}}

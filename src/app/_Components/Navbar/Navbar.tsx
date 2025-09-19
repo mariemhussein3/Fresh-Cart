@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/navigation-menu";
 import { CiMenuBurger } from "react-icons/ci";
 import { IoMdClose } from "react-icons/io";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import Image from "next/image";
 import { cn } from "src/lib/utils";
 import { useSession } from "next-auth/react";
@@ -22,6 +22,7 @@ weight:["400","500","600","700","800"]
 });
 export default function Navbar() {
   const pathName=usePathname()
+  const router=useRouter()
   const {  status } = useSession();
 const context=useContext(CountCart)
 if(!context){
@@ -203,14 +204,19 @@ const {countCart}=context
 
       </NavigationMenu>
       {/* Responsive togglr */}
-      <div  className={`flex flex-col w-[90%] items-start gap-7 h-screen 
+      <div  className={`flex flex-col w-[85%] items-start gap-7 h-screen 
     fixed top-[10%] left-0 z-50 bg-white pt-15 ps-5
     transform transition-all duration-500
     ${isChecked ? "-translate-x-0" : "-translate-x-full"} lg:hidden`}>
 
   {navList.map((item) => {
-            return (
-              <Link key={item.path} href={item.path} className={cn(pathName === item.path? "activeEle":"itemlink")}>
+    return (
+         
+              <Link      onClick={(e) => {
+    e.preventDefault()
+    router.push(item.path) 
+    setIsChecked(false)
+  }}  key={item.path} href={item.path} className={cn(pathName === item.path? "activeEle":"itemlink")}>
                 {item.content}
               </Link>
             );
