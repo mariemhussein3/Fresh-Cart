@@ -11,8 +11,8 @@ export default function RatedAnimation({ratedProducts}:{ratedProducts:product[]}
             <motion.div
 key={productCard._id}
                          className=""
-                         initial={{ y: 120, opacity: 0 }}
-                         whileInView={{ y: 0, opacity: 1 }}
+                         initial={{ x: -30, opacity: .9}}
+                         whileInView={{ x: 0, opacity: 1 }}
                          transition={{ duration: 1 }}
                          viewport={{ once: true,amount:.6}}
            

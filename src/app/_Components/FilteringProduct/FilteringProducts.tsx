@@ -3,7 +3,6 @@ import React, { useRef, useState } from 'react'
 import { product } from 'src/types/products.type';
 import { Input } from 'src/components/ui/input';
 import ProductCard from 'src/app/_Components/ProductCard/ProductCard';
-import { motion } from 'framer-motion';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -82,17 +81,9 @@ setSorted(sortItem)
            <div className="grid xl:grid-cols-5 md:grid-cols-2 lg:grid-cols-3 grid-cols-1 gap-4 my-5">
              
     {productsToShow.map((productCard)=>(
-<motion.div
-key={productCard._id}
-                         className=""
-                         initial={{ y: 120, opacity:1 }}
-                         whileInView={{ y: 0, opacity: 1 }}
-                         transition={{ duration: 1 }}
-                         viewport={{ once: true,amount:.6}}
-           
-                       >
-                       <ProductCard  productCard={productCard}/>
-                       </motion.div>
+
+                
+                       <ProductCard key={productCard._id}  productCard={productCard}/>
     ))}
  </div>
     </div>
