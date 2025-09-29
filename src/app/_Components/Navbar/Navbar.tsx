@@ -1,5 +1,5 @@
 "use client";
-import { useContext, useState } from "react";
+import React, { useContext, useState } from "react";
 import Link from "next/link";
 import {
   NavigationMenu,
@@ -209,23 +209,50 @@ const {countCart}=context
     transform transition-all duration-500
     ${isChecked ? "-translate-x-0" : "-translate-x-full"} lg:hidden`}>
 
-  {navList.map((item) => {
-    return (
-         
-              <Link      onClick={(e) => {
-    e.preventDefault()
-    router.push(item.path) 
-    setIsChecked(false)
-  }}  key={item.path} href={item.path} className={cn(pathName === item.path? "activeEle":"itemlink")}>
-                {item.content}
-              </Link>
-            );
-          })}
+{navList.map((item) =>
+ <React.Fragment key={item.path}>
+
+
+{   item.isLogin && status === "authenticated" && (
+     <Link
+       
+       onClick={(e) => {
+         e.preventDefault();
+         router.push(item.path);
+         setIsChecked(false);
+       }}
+       href={item.path}
+       className={cn(pathName === item.path ? "activeEle" : "itemlink")}
+     >
+       {item.content}
+     </Link>
+   ) }
+   {!item.isLogin &&( <Link
+
+       onClick={(e) => {
+         e.preventDefault();
+         router.push(item.path);
+         setIsChecked(false);
+       }}
+       href={item.path}
+       className={cn(pathName === item.path ? "activeEle" : "itemlink")}
+     >
+       {item.content}
+     </Link>)}
+ </React.Fragment>
+  
+)}
+
+
           {status === "unauthenticated" && (
             <>
               {authList.map((item) => {
                 return (
-                  <Link key={item.path} href={item.path} className={cn(pathName === item.path? "activeEle":"itemlink")}>
+                  <Link  onClick={(e) => {
+         e.preventDefault();
+         router.push(item.path);
+         setIsChecked(false);
+       }} key={item.path} href={item.path} className={cn(pathName === item.path? "activeEle":"itemlink")}>
                     {item.content}
                   </Link>
                 );

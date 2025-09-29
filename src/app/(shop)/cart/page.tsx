@@ -12,7 +12,6 @@ import { FaTrashAlt } from "react-icons/fa";
 import Link from "next/link";
 import Empty from "src/app/_Components/Empty/Empty";
 import Image from "next/image";
-
 export default function Cart() {
   const [products, setProducts] = useState<Product[]>([]);
   const [totalPrice, settotalPrice] = useState(0);

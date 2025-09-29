@@ -24,6 +24,6 @@
        "@/lib/*": ["./src/lib/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/not-found.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/not-found.js", "src/app/x/page.jsx"],
   "exclude": ["node_modules"]
 }

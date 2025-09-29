@@ -52,7 +52,7 @@ export default function ProductCard({ productCard }: { productCard: product }) {
               </CardContent>
             </CardFooter>
           </Link>
-          <div className="px-3 top-10 right-[-40px] group-hover:right-0 absolute group-hover:transition-all  group-hover:duration-500 flex items-center justify-start flex-col gap-4">
+          <div className="px-3 top-10 right-0 lg:right-[-40px] lg:group-hover:right-0 absolute lg:group-hover:transition-all  lg:group-hover:duration-500 flex items-center justify-start flex-col gap-4">
             <WishListBtn id={_id} />
             <AddBtn id={_id} icon={true} />
           </div>

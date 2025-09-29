@@ -82,8 +82,7 @@ setSorted(sortItem)
              
     {productsToShow.map((productCard)=>(
 
-                
-                       <ProductCard key={productCard._id}  productCard={productCard}/>
+                       <ProductCard key={productCard._id} productCard={productCard}/>
     ))}
  </div>
     </div>
