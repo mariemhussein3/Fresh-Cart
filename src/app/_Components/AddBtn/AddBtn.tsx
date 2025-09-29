@@ -6,7 +6,9 @@ import { Button } from 'src/components/ui/button'
 import { CountCart } from 'src/Context/CountCart';
 import { CartData } from 'src/types/Cart.type';
 import { FaCartShopping } from "react-icons/fa6";
+import { useRouter } from 'next/navigation';
 export default function AddBtn({id,icon}:{id:string,icon:boolean}) {
+  const router=useRouter()
   const context=useContext(CountCart)
   if(!context){
     throw new Error("Not Exit")
@@ -32,8 +34,8 @@ if(data.status=="success"){
 else{
   setIsLoading(false)
     setIsDisabled(false)
-
-  toast.error(data.message,{position:"top-center",duration:2000})
+router.push("/login")
+  // toast.error(data.message,{position:"top-center",duration:2000})
 }
   }
 // CartData
